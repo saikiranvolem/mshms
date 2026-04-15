@@ -34,3 +34,10 @@ def doctor_delete(request, pk):
     doctor = get_object_or_404(Doctor, pk=pk)
     doctor.delete()
     return redirect('/doctors')
+
+from rest_framework.generics import ListCreateAPIView
+from .serializers import DoctorSerializer
+
+class DoctorListCreateAPI(ListCreateAPIView):
+    queryset = Doctor.objects.all()
+    serializer_class = DoctorSerializer

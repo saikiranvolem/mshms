@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'users',
     'dashboard',
     'appointments',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 LOGIN_URL = '/login/'
+
+GEMINI_API_KEY = 'AIzaSyCWHGLnL3tXNcyfuRVo2CdyFM7-dEguiRA'
+
+# re_RYLcSxCH_Q3zbBzGdh3EBYZ1mTsioa98E

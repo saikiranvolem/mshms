@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
+
+from django import views
 from .models import Patient
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -7,6 +9,15 @@ from django.contrib.auth.decorators import login_required
 def patient_list(request):
     patients = Patient.objects.all()
     return render(request, 'list.html',  {'patients': patients})
+
+# class PatientlistView(views.View):
+
+#     def get(self, request):
+#         patients = Patient.objects.all()
+#         return render(request, 'list.html', {'patients': patients})
+    
+#     def post(self, request):
+#         pass
 
 @login_required
 def patient_create(request):
@@ -39,3 +50,10 @@ def patient_delete(request, pk):
     patient = get_object_or_404(Patient, pk=pk)
     patient.delete()
     return redirect('/patients')
+
+from rest_framework.generics import ListCreateAPIView
+from .serializers import PatientSerializer
+
+class PatientListCreateAPI(ListCreateAPIView):
+    queryset = Patient.objects.all()
+    serializer_class = PatientSerializer

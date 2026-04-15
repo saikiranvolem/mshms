@@ -21,15 +21,15 @@
                             {% csrf_token %}
                             <div class="mb-3">
                                 <label for="doctor" class="form-label">Doctor Name</label>
-                                <input type="text" class="form-control" id="doctor" name="doctor" value="{{ appointment.doctor_name }}">
+                                <input type="text" class="form-control" id="doctor" name="doctor" value="{{ appointment.doctor.name }}">
                             </div>
                             <div class="mb-3">
                                 <label for="patient" class="form-label">Patient Name</label>
-                                <input type="text" class="form-control" id="patient" name="patient" value="{{ appointment.patient_name }}">
+                                <input type="text" class="form-control" id="patient" name="patient" value="{{ appointment.patient.name }}">
                             </div>
                             <div class="mb-3">
                                 <label for="time" class="form-label">Appointment Time</label>
-                                <input type="datetime-local" class="form-control" id="time" name="time" value="{{ appointment.time|date:'Y-m-d\TH:i' }}">
+                                <input type="datetime-local" class="form-control" id="time" name="time" value="{{ appointment.appointment_time|date:'Y-m-d\TH:i' }}">
                             </div>
 
                             <div class="d-flex gap-2">
