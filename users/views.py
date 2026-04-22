@@ -14,12 +14,12 @@ def signup(request):
             password=password
         )
         resend.api_key = settings.RESEND_API_KEY
-        r = resend.Emails.send(
+        resend.Emails.send(
           {  
-            'from': 'onboarding@resend.dev',
-            'to': 'saikiranvolem2003@gmail.com',
-            'subject': "Welcome to HMS",
-            'html': f"<h1>welcome {user.username}</h1>"
+            "from": "onboarding@resend.dev",
+            "to": ["saikiranvolem2003@gmail.com"],
+            "subject": "Welcome to HMS",
+            "html": f"<h1>welcome {user.username}</h1>"
           }
         )
 
